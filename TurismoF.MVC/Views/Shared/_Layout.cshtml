@@ -29,106 +29,128 @@
             --ayu-danger: #F07178;
             --ayu-highlight: #409FFF4D;
         }
+
         html, body {
             background: var(--ayu-bg);
             color: var(--ayu-fg);
             font-family: 'JetBrains Mono', 'Segoe UI', monospace, sans-serif;
             min-height: 100vh;
         }
+
         .navbar {
             background-color: var(--ayu-panel-bg) !important;
             border-bottom: 2px solid var(--ayu-line);
         }
+
         .navbar-brand,
         .nav-link {
             color: var(--ayu-primary) !important;
             font-weight: bold;
         }
-        .navbar-brand:hover,
-        .nav-link:hover {
-            color: var(--ayu-accent) !important;
-        }
+
+            .navbar-brand:hover,
+            .nav-link:hover {
+                color: var(--ayu-accent) !important;
+            }
+
         .card {
             background: var(--ayu-panel-bg);
             border: 1px solid var(--ayu-line);
             border-radius: 1rem;
             box-shadow: 0 2px 14px 0 #0009;
         }
+
         .form-control, .form-select {
             background: var(--ayu-line);
             color: var(--ayu-fg);
             border: 1px solid var(--ayu-ui-bg);
             border-radius: .6rem;
         }
-        .form-control:focus, .form-select:focus {
-            border-color: var(--ayu-primary);
-            box-shadow: 0 0 0 .2rem var(--ayu-highlight);
-            background: var(--ayu-ui-bg);
-            color: var(--ayu-fg);
-        }
+
+            .form-control:focus, .form-select:focus {
+                border-color: var(--ayu-primary);
+                box-shadow: 0 0 0 .2rem var(--ayu-highlight);
+                background: var(--ayu-ui-bg);
+                color: var(--ayu-fg);
+            }
+
         label {
             color: var(--ayu-accent);
             font-weight: 700;
         }
+
         .btn-primary {
             background: linear-gradient(90deg, var(--ayu-primary), var(--ayu-secondary));
             border: none;
             color: #0D1017;
             font-weight: bold;
         }
+
         .btn-success {
             background: linear-gradient(90deg, var(--ayu-success), var(--ayu-accent));
             border: none;
             color: #0D1017;
             font-weight: bold;
         }
+
         .btn-danger {
             background: var(--ayu-danger);
             border: none;
             color: #fff;
         }
+
         .btn:hover, .btn:focus {
             opacity: .93;
             transform: translateY(-2px) scale(1.01);
         }
+
         .table {
             color: var(--ayu-fg);
             background: var(--ayu-panel-bg);
             border-radius: .7rem;
             overflow: hidden;
         }
-        .table th, .table td {
-            border: none;
-            padding: .9rem;
-        }
-        .table thead th {
-            background: var(--ayu-line);
-            color: var(--ayu-accent);
-        }
+
+            .table th, .table td {
+                border: none;
+                padding: .9rem;
+            }
+
+            .table thead th {
+                background: var(--ayu-line);
+                color: var(--ayu-accent);
+            }
+
         .form-label {
             color: var(--ayu-accent);
         }
+
         .alert-danger {
             background: var(--ayu-error);
             color: #fff;
             border: none;
         }
+
         .alert-success {
             background: var(--ayu-success);
             color: #222;
             border: none;
         }
+
         .shadow-panel {
             box-shadow: 0 4px 32px #0004;
             border-radius: 1.3rem;
         }
+
         a, .link {
             color: var(--ayu-primary);
             text-decoration: underline dashed;
         }
-        a:hover, .link:hover {
-            color: var(--ayu-accent);
-        }
+
+            a:hover, .link:hover {
+                color: var(--ayu-accent);
+            }
+
         .section-title {
             color: var(--ayu-secondary);
             font-size: 2.1rem;
@@ -137,6 +159,7 @@
             margin-bottom: 1.5rem;
             text-shadow: 0 2px 6px #0008;
         }
+
         hr {
             border-color: var(--ayu-accent);
             opacity: .3;
@@ -148,8 +171,8 @@
         <div class="container">
             <a class="navbar-brand" href="/">🚄 TurismoF Tren</a>
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="/Compra/Index">Comprar Boletos</a></li>
-                <li class="nav-item"><a class="nav-link" href="/Trenes/Index">Trenes</a></li>
+                <li class="nav-item"><a class="nav-link" href="/Home/Index">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="/AdminTren/CrearTrenCompleto">Crear Tren</a></li>
                 <li class="nav-item"><a class="nav-link" href="/Rutas/Index">Rutas</a></li>
             </ul>
         </div>

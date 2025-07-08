@@ -1,40 +1,50 @@
 ﻿@{
-    ViewBag.Title = "Crear tren completo";
-}
-<h2>Crear tren completo</h2>
-
-@if(TempData["Mensaje"] != null)
-{
-    <div class="alert alert-success">@TempData["Mensaje"]</div>
+    ViewBag.Title = "Crear Tren Completo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<form asp-action="CrearTrenCompleto" method="post">
-    <div class="mb-2">
-        <label>Nombre del tren</label>
-        <input name="nombre" class="form-control" required />
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-panel p-4">
+            <h1 class="section-title">Crear Tren Completo</h1>
+            @if(TempData["Mensaje"] != null)
+            {
+                <div class="alert alert-success">@TempData["Mensaje"]</div>
+            }
+            <form asp-action="CrearTrenCompleto" method="post" autocomplete="off">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre del Tren</label>
+                    <input name="nombre" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label for="estado" class="form-label">Estado</label>
+                    <select name="estado" class="form-select" required>
+                        <option value="">Seleccione...</option>
+                        <option value="Activo">Activo</option>
+                        <option value="EnMantenimiento">En Mantenimiento</option>
+                        <option value="FueraDeServicio">Fuera de Servicio</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="cantidadVagones" class="form-label">Cantidad de Vagones</label>
+                    <input name="cantidadVagones" type="number" min="1" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label for="cantidadPreferenciales" class="form-label">Vagones Preferenciales</label>
+                    <input name="cantidadPreferenciales" type="number" min="0" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label for="filasPorVagon" class="form-label">Filas por Vagón</label>
+                    <input name="filasPorVagon" type="number" min="1" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label for="asientosPorFila" class="form-label">Asientos por Fila</label>
+                    <input name="asientosPorFila" type="number" min="1" class="form-control" required />
+                </div>
+                <div class="text-end">
+                    <button type="submit" class="btn btn-success px-4">Crear Tren</button>
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="mb-2">
-        <label>Estado</label>
-        <select name="estado" class="form-control">
-            <option value="0">Disponible</option>
-            <option value="1">FueraDeServicio</option>
-        </select>
-    </div>
-    <div class="mb-2">
-        <label>Cantidad de vagones</label>
-        <input type="number" name="cantidadVagones" class="form-control" required min="1" />
-    </div>
-    <div class="mb-2">
-        <label>Vagones preferenciales</label>
-        <input type="number" name="cantidadPreferenciales" class="form-control" required min="0" />
-    </div>
-    <div class="mb-2">
-        <label>Filas por vagón</label>
-        <input type="number" name="filasPorVagon" class="form-control" required min="1" />
-    </div>
-    <div class="mb-2">
-        <label>Asientos por fila</label>
-        <input type="number" name="asientosPorFila" class="form-control" required min="1" />
-    </div>
-    <button type="submit" class="btn btn-primary">Crear tren</button>
-</form>
+</div>
