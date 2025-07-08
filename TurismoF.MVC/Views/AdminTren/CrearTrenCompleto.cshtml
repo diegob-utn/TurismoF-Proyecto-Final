@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Crear tren completo";
+}
+<h2>Crear tren completo</h2>
+
+@if(TempData["Mensaje"] != null)
+{
+    <div class="alert alert-success">@TempData["Mensaje"]</div>
+}
+
+<form asp-action="CrearTrenCompleto" method="post">
+    <div class="mb-2">
+        <label>Nombre del tren</label>
+        <input name="nombre" class="form-control" required />
+    </div>
+    <div class="mb-2">
+        <label>Estado</label>
+        <select name="estado" class="form-control">
+            <option value="0">Disponible</option>
+            <option value="1">FueraDeServicio</option>
+        </select>
+    </div>
+    <div class="mb-2">
+        <label>Cantidad de vagones</label>
+        <input type="number" name="cantidadVagones" class="form-control" required min="1" />
+    </div>
+    <div class="mb-2">
+        <label>Vagones preferenciales</label>
+        <input type="number" name="cantidadPreferenciales" class="form-control" required min="0" />
+    </div>
+    <div class="mb-2">
+        <label>Filas por vagón</label>
+        <input type="number" name="filasPorVagon" class="form-control" required min="1" />
+    </div>
+    <div class="mb-2">
+        <label>Asientos por fila</label>
+        <input type="number" name="asientosPorFila" class="form-control" required min="1" />
+    </div>
+    <button type="submit" class="btn btn-primary">Crear tren</button>
+</form>
