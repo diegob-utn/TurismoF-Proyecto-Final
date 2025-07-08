@@ -1,0 +1,44 @@
+﻿@model TurismoF.MVC.ViewModels.CompraViewModel
+@{
+    ViewBag.Title = "Comprar Boletos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row justify-content-center">
+    <div class="col-md-7">
+        <div class="card shadow-panel p-4">
+            <h1 class="section-title">Comprar Boletos</h1>
+            <p class="mb-4" style="color:var(--ayu-ui-fg)">
+                Selecciona el tipo de asiento, la categoría y la cantidad de boletos que deseas comprar.
+            </p>
+            <form asp-action="Resumen" method="post" autocomplete="off">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label asp-for="TipoAsiento" class="form-label">Tipo de Asiento</label>
+                        <select asp-for="TipoAsiento" class="form-select" required>
+                            <option value="">Seleccione...</option>
+                            <option value="Economico">Económico</option>
+                            <option value="Preferencial">Preferencial</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="Categoria" class="form-label">Categoría</label>
+                        <select asp-for="Categoria" class="form-select" required>
+                            <option value="">Seleccione...</option>
+                            <option value="Adulto">Adulto</option>
+                            <option value="Niño">Niño</option>
+                            <option value="TerceraEdad">Tercera Edad</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label asp-for="Cantidad" class="form-label">Cantidad de Boletos</label>
+                    <input asp-for="Cantidad" type="number" min="1" class="form-control" required />
+                    <span class="text-danger" asp-validation-for="Cantidad"></span>
+                </div>
+                <div class="text-end">
+                    <button type="submit" class="btn btn-primary px-4 py-2">Calcular Precio</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

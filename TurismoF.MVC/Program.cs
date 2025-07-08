@@ -22,7 +22,7 @@ namespace TurismoF.MVC
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString));
 
-            builder.Services.AddDbContext<Context1>(options =>
+            builder.Services.AddDbContext<Context1>(options =>  
                 options.UseNpgsql(connectionData));
 
 
@@ -30,7 +30,7 @@ namespace TurismoF.MVC
 
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-            builder.Services.AddControllersWithViews();
+            builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
             var app = builder.Build();
 

@@ -1,0 +1,40 @@
+﻿@model TurismoF.MVC.ViewModels.CompraViewModel
+@{
+    ViewBag.Title = "Resumen de Compra";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row justify-content-center">
+    <div class="col-md-7">
+        <div class="card shadow-panel p-4">
+            <h1 class="section-title">Resumen de la Compra</h1>
+            <ul class="list-group mb-4" style="background:transparent;">
+                <li class="list-group-item" style="background:transparent; color:var(--ayu-fg);">
+                    <strong>Tipo de Asiento:</strong>
+                    <span style="color:var(--ayu-primary);">@Model.TipoAsiento</span>
+                </li>
+                <li class="list-group-item" style="background:transparent; color:var(--ayu-fg);">
+                    <strong>Categoría:</strong>
+                    <span style="color:var(--ayu-secondary);">@Model.Categoria</span>
+                </li>
+                <li class="list-group-item" style="background:transparent; color:var(--ayu-fg);">
+                    <strong>Cantidad:</strong>
+                    <span style="color:var(--ayu-success);">@Model.Cantidad</span>
+                </li>
+            </ul>
+            <hr />
+            <h3 style="color:var(--ayu-accent);">Total a Pagar: <span style="color:var(--ayu-success);">$@Model.PrecioTotal</span></h3>
+            <form asp-action="Confirmar" method="post" class="mt-4">
+                <input type="hidden" asp-for="TipoAsiento" />
+                <input type="hidden" asp-for="Categoria" />
+                <input type="hidden" asp-for="Cantidad" />
+                <input type="hidden" asp-for="PrecioTotal" />
+                <div class="text-end">
+                    <button type="submit" class="btn btn-success px-4 py-2">Confirmar y Pagar</button>
+                </div>
+            </form>
+            <div class="mt-3">
+                <a href="@Url.Action("Index", "Compra")" class="link">Modificar selección</a>
+            </div>
+        </div>
+    </div>
+</div>

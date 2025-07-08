@@ -1,81 +1,165 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - TurismoF.MVC</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/ayu-dark.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/TurismoF.MVC.styles.css" asp-append-version="true" />
+    <title>@ViewBag.Title - TurismoF Tren</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Google Fonts: JetBrains Mono for code-like look -->
+    <link href="https://fonts.googleapis.com/css?family=JetBrains+Mono:400,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ayu-bg: #0D1017;
+            --ayu-panel-bg: #0F131A;
+            --ayu-line: #11151C;
+            --ayu-accent: #E6B450;
+            --ayu-error: #D95757;
+            --ayu-fg: #BFBDB6;
+            --ayu-ui-fg: #565B66;
+            --ayu-ui-bg: #0B0E14;
+            --ayu-primary: #59C2FF;
+            --ayu-secondary: #FFB454;
+            --ayu-success: #7FD962;
+            --ayu-info: #73B8FF;
+            --ayu-warning: #E6B673;
+            --ayu-danger: #F07178;
+            --ayu-highlight: #409FFF4D;
+        }
+        html, body {
+            background: var(--ayu-bg);
+            color: var(--ayu-fg);
+            font-family: 'JetBrains Mono', 'Segoe UI', monospace, sans-serif;
+            min-height: 100vh;
+        }
+        .navbar {
+            background-color: var(--ayu-panel-bg) !important;
+            border-bottom: 2px solid var(--ayu-line);
+        }
+        .navbar-brand,
+        .nav-link {
+            color: var(--ayu-primary) !important;
+            font-weight: bold;
+        }
+        .navbar-brand:hover,
+        .nav-link:hover {
+            color: var(--ayu-accent) !important;
+        }
+        .card {
+            background: var(--ayu-panel-bg);
+            border: 1px solid var(--ayu-line);
+            border-radius: 1rem;
+            box-shadow: 0 2px 14px 0 #0009;
+        }
+        .form-control, .form-select {
+            background: var(--ayu-line);
+            color: var(--ayu-fg);
+            border: 1px solid var(--ayu-ui-bg);
+            border-radius: .6rem;
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: var(--ayu-primary);
+            box-shadow: 0 0 0 .2rem var(--ayu-highlight);
+            background: var(--ayu-ui-bg);
+            color: var(--ayu-fg);
+        }
+        label {
+            color: var(--ayu-accent);
+            font-weight: 700;
+        }
+        .btn-primary {
+            background: linear-gradient(90deg, var(--ayu-primary), var(--ayu-secondary));
+            border: none;
+            color: #0D1017;
+            font-weight: bold;
+        }
+        .btn-success {
+            background: linear-gradient(90deg, var(--ayu-success), var(--ayu-accent));
+            border: none;
+            color: #0D1017;
+            font-weight: bold;
+        }
+        .btn-danger {
+            background: var(--ayu-danger);
+            border: none;
+            color: #fff;
+        }
+        .btn:hover, .btn:focus {
+            opacity: .93;
+            transform: translateY(-2px) scale(1.01);
+        }
+        .table {
+            color: var(--ayu-fg);
+            background: var(--ayu-panel-bg);
+            border-radius: .7rem;
+            overflow: hidden;
+        }
+        .table th, .table td {
+            border: none;
+            padding: .9rem;
+        }
+        .table thead th {
+            background: var(--ayu-line);
+            color: var(--ayu-accent);
+        }
+        .form-label {
+            color: var(--ayu-accent);
+        }
+        .alert-danger {
+            background: var(--ayu-error);
+            color: #fff;
+            border: none;
+        }
+        .alert-success {
+            background: var(--ayu-success);
+            color: #222;
+            border: none;
+        }
+        .shadow-panel {
+            box-shadow: 0 4px 32px #0004;
+            border-radius: 1.3rem;
+        }
+        a, .link {
+            color: var(--ayu-primary);
+            text-decoration: underline dashed;
+        }
+        a:hover, .link:hover {
+            color: var(--ayu-accent);
+        }
+        .section-title {
+            color: var(--ayu-secondary);
+            font-size: 2.1rem;
+            font-weight: 900;
+            letter-spacing: .04em;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 6px #0008;
+        }
+        hr {
+            border-color: var(--ayu-accent);
+            opacity: .3;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TurismoF.MVC</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-             @*            <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Asientos" asp-action="Index">Asientos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Boletos" asp-action="Index">Boletos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Pagos" asp-action="Index">Pagos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="PreciosConfiguracion" asp-action="Index">Configuración de Precios</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Reservas" asp-action="Index">Reservas</a>
-                        </li> *@
-                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Rutas" asp-action="Index">Rutas</a>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Rutas" asp-action="Mapas">mapas</a>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Rutas" asp-action="SeleccionarRuta">Seleccionar Rutas</a>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="AdminTren" asp-action="CrearTrenCompleto">Crear tren</a>
-                        </li> 
-                      @*   <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Trenes" asp-action="Index">Trenes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Vagones" asp-action="Index">Vagones</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Viajes" asp-action="Index">Viajes</a>
-                        </li> *@
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
-            &copy; 2025 - TurismoF.MVC - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <a class="navbar-brand" href="/">🚄 TurismoF Tren</a>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="/Compra/Index">Comprar Boletos</a></li>
+                <li class="nav-item"><a class="nav-link" href="/Trenes/Index">Trenes</a></li>
+                <li class="nav-item"><a class="nav-link" href="/Rutas/Index">Rutas</a></li>
+            </ul>
         </div>
+    </nav>
+    <main class="container py-5">
+        @RenderBody()
+    </main>
+    <footer class="text-center py-4" style="color:var(--ayu-ui-fg); background:var(--ayu-panel-bg); border-top:1px solid var(--ayu-line);">
+        TurismoF Tren &copy; @DateTime.Now.Year
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

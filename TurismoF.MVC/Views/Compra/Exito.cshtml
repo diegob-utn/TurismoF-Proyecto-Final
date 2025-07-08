@@ -1,0 +1,16 @@
+﻿@model TurismoF.MVC.ViewModels.CompraViewModel
+@{
+    ViewBag.Title = "Compra Exitosa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row justify-content-center">
+    <div class="col-md-7">
+        <div class="card shadow-panel p-4 text-center">
+            <h1 class="section-title">¡Gracias por tu compra!</h1>
+            <p class="fs-5 mb-2" style="color:var(--ayu-success);">@Model.Mensaje</p>
+            <hr />
+            <p class="fs-6" style="color:var(--ayu-fg);">Puedes ver tus boletos en tu perfil o volver a la <a href="/" class="link">página principal</a>.</p>
+            <a href="/Compra/Index" class="btn btn-primary mt-3">Comprar más boletos</a>
+        </div>
+    </div>
+</div>
